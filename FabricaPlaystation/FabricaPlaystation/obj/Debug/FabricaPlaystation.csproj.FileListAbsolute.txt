@@ -1,0 +1,9 @@
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.exe.config
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.exe
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.pdb
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csprojResolveAssemblyReference.cache
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.Properties.Resources.resources
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csproj.GenerateResource.cache
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csproj.CoreCompileInputs.cache
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.exe
+C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.pdb
