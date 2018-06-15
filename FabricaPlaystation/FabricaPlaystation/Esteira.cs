@@ -10,7 +10,7 @@ namespace FabricaPlaystation
 
       
     {
-       int NumeroConsoles { get; set; }
+        
      Console Console { get; set; }
    Boolean Disponivel { get; set; } = true;
     Boolean Status { get; set; } = false;
@@ -24,6 +24,7 @@ namespace FabricaPlaystation
                     Disponivel = false;
                    
                     verif = VerificarAsync(console);
+                    
                   Disponivel = true;
                 }
             }

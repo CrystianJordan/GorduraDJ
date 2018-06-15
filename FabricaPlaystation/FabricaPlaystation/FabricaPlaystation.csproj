@@ -46,6 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Console.cs" />
+    <Compile Include="Esteira.cs" />
+    <Compile Include="EsteiraManutenção.cs" />
+    <Compile Include="EsteiraModelo.cs" />
+    <Compile Include="EsteiraProdução.cs" />
+    <Compile Include="EsteiraVersão.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +58,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IEsteria.cs" />
+    <Compile Include="Maquina.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
