@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace FabricaPlaystation
 {
-    interface IEsteria
+    class Maquina
     {
-
-       int VerificarAsync(Console console);
-      Task<int> RecebeConsole(Console console);
-      
     }
 }

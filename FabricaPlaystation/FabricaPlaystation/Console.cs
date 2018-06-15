@@ -8,13 +8,13 @@ namespace FabricaPlaystation
 {
     class Console
     {
-        int prop;
-
-        void GeraNumero()
+        public bool Embalado { get; set; } = false;
+        //Retorna numero aleatroio
+       public int GeraNumero()
         {
  Random rnd = new Random();
         int month = rnd.Next(1, 13);
-            this.prop = month;
+            return month;
         }
        
     }
