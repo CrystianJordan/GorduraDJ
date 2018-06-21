@@ -10,7 +10,7 @@ namespace FabricaPlaystation
     {
 
        int VerificarAsync(Console console);
-      Task<int> RecebeConsole(Console console);
+      Task RecebeConsole(Console console);
       
     }
 }

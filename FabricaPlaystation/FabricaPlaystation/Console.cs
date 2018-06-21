@@ -13,7 +13,7 @@ namespace FabricaPlaystation
        public int GeraNumero()
         {
  Random rnd = new Random();
-        int month = rnd.Next(1, 13);
+        int month = rnd.Next(1, 100);
             return month;
         }
        

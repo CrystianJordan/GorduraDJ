@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FabricaPlaystation
 {
-    class EsteiraModelo:Esteira
+    class EsteiraManutencao: Esteira
     {
         public async Task<int> RecebeConsole(Console console)
         {
@@ -15,19 +15,20 @@ namespace FabricaPlaystation
             {
                 if (Disponivel == true)
                 {
-                   
+                    Disponivel = false;
 
                     verif = VerificarAsync(console);
-                    Modelo(verif);
+                    salvo(verif);
+                  
                     Disponivel = true;
                 }
             }
             // irá esperar a função verificarAsync executar para depois preencher a variável
-            return verif;  
+            return verif;
         }
         public override int VerificarAsync(Console console)
         {
-            if (console.GeraNumero() > 50)
+            if (console.GeraNumero() > 30)
             {
                 return 1;
             }
@@ -36,6 +37,7 @@ namespace FabricaPlaystation
                 return 2;
             }
         }
-        public Modelo Modelo;
+        public Salvou salvo;
+        public Lixo lixo;
     }
 }

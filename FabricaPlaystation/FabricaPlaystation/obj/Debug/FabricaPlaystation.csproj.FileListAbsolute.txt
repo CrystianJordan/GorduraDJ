@@ -7,3 +7,13 @@ C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\Fabr
 C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csproj.CoreCompileInputs.cache
 C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.exe
 C:\Users\cryst\source\repos\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.pdb
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.exe.config
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.exe
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\bin\Debug\FabricaPlaystation.pdb
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csprojResolveAssemblyReference.cache
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.Form1.resources
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.Properties.Resources.resources
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csproj.GenerateResource.cache
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.csproj.CoreCompileInputs.cache
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.exe
+C:\Users\cryst\OneDrive\Área de Trabalho\GitHub\GorduraDJ\FabricaPlaystation\FabricaPlaystation\obj\Debug\FabricaPlaystation.pdb

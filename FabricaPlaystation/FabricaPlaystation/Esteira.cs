@@ -11,10 +11,10 @@ namespace FabricaPlaystation
       
     {
         
-     Console Console { get; set; }
-   Boolean Disponivel { get; set; } = true;
-    Boolean Status { get; set; } = false;
-        public async Task<int> RecebeConsole(Console console)
+   public  Console Console { get; set; }
+  public Boolean Disponivel { get; set; } = true;
+  public  Boolean Status { get; set; } = false;
+        public async Task RecebeConsole(Console console)
         {
             int verif = 0;
             if (Status == true)
@@ -29,7 +29,7 @@ namespace FabricaPlaystation
                 }
             }
             // irá esperar a função verificarAsync executar para depois preencher a variável
-            return verif;
+    
         }
       public virtual int VerificarAsync(Console console)
         {
@@ -42,5 +42,16 @@ namespace FabricaPlaystation
                 return 2;
             }
         }
+
+        public void Liga()
+        {
+            this.Status = true;
+        }
+        public void Desliga()
+        {
+            this.Status = false;
+        }
+   
+
     }
 }
