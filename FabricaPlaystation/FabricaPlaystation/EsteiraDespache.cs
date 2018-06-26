@@ -27,7 +27,7 @@ namespace FabricaPlaystation
         }
         public virtual int VerificarAsync(Console console)
         {
-            if (console.GeraNumero() < 20)
+            if (console.GeraNumero() > 10)
             {
                 return 1;
             }

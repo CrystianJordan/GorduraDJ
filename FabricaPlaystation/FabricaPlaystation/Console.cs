@@ -12,6 +12,7 @@ namespace FabricaPlaystation
         //Retorna numero aleatroio
        public int GeraNumero()
         {
+           
  Random rnd = new Random();
         int month = rnd.Next(1, 100);
             return month;

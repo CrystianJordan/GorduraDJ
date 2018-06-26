@@ -28,7 +28,8 @@ namespace FabricaPlaystation
         }
         public override int VerificarAsync(Console console)
         {
-            if (console.GeraNumero() > 30)
+            int i = console.GeraNumero();
+            if (i < 30)
             {
                 return 1;
             }
@@ -38,6 +39,5 @@ namespace FabricaPlaystation
             }
         }
         public Salvou salvo;
-        public Lixo lixo;
     }
 }

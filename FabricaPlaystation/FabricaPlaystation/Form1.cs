@@ -12,6 +12,7 @@ namespace FabricaPlaystation
 {
     public partial class Form1 : Form
     {
+        
         EsteiraModelo esteriaModelo = new EsteiraModelo();
 
         EsteiraDespache esteiraDespache = new EsteiraDespache();
@@ -41,6 +42,7 @@ namespace FabricaPlaystation
             esteiraProducao.produziu += verifProducao;
             esteiraPs3.embala += verificaVersaoPs3;
             esteiraPs4.embala += verificaVersaoPs4;
+            btnLuzEmergencia.BackColor = Color.Red;
             ProducaoAsync();
 
         }
@@ -54,6 +56,7 @@ namespace FabricaPlaystation
 
         private void BVersaoPsQ_Click(object sender, EventArgs e)
         {
+           
             if (BVersaoPsQ.BackColor == Color.Red)
             {
                 BVersaoPsQ.BackColor = Color.Green;
@@ -62,14 +65,22 @@ namespace FabricaPlaystation
             {
                 BVersaoPsQ.BackColor = Color.Red;
             }
-            if (esteiraPs4.Status == false)
+            if (esteiraPs4.Status == true)
             {
-                esteiraPs4.Liga();
+ esteiraPs4.Desliga();
             }
             else
             {
-                esteiraPs4.Desliga();
+                esteiraPs4.Liga();
+                
             }
+            if (esteiraPs3.Status==false && esteiraPs4.Status==false)
+            {
+                desligaTudo();
+            }
+           
+
+           
 
         }
         public async Task ProducaoAsync()
@@ -84,22 +95,39 @@ namespace FabricaPlaystation
 
         public async Task LinhaProd()
         {
+            int ligado = 0;
+            int salvo = 0;
             Console console = new Console();
-            int verifProd=await esteiraProducao.RecebeConsole(console);
-            if (verifProd==2)
+            int verifProd = await esteiraProducao.RecebeConsole(console);
+            if (verifProd == 2)
             {
- await esteiraManutencao.RecebeConsole(console);
-            }
-           
-            int verife = await esteriaModelo.RecebeConsole(console);
-            if (verife == 1)
-            {
-                await esteiraPs3.RecebeConsole(console);
-            }
-            else
-            {
-                await esteiraPs4.RecebeConsole(console);
+                salvo = await esteiraManutencao.RecebeConsole(console);
 
+            }
+            if (verifProd == 1 || salvo == 1)
+            {
+                int verife = await esteriaModelo.RecebeConsole(console);
+                if (verife == 1)
+                {
+                    await esteiraPs3.RecebeConsole(console);
+                    if (esteiraPs3.Status==true)
+                    {
+                        ligado = 1;
+                    }
+                }
+                else
+                {
+                    await esteiraPs4.RecebeConsole(console);
+                    if (esteiraPs4.Status == true)
+                    {
+                        ligado = 2;
+                    }
+                }
+                if (ligado==1||ligado==2)
+                {
+await esteiraDespache.RecebeConsole(console);
+                }
+                
             }
 
 
@@ -108,13 +136,13 @@ namespace FabricaPlaystation
         private void verificaModelo(int token)
         {
 
-            if (token == 1)
+            if (token == 1 && esteiraPs3.Status==true)
             {
                 valPs3++;
                 labelPs3.Text = valPs3.ToString();
 
             }
-            else
+            else if(token==2 && esteiraPs4.Status==true)
             {
                 valPs4++;
                 labelPs4.Text = valPs4.ToString();
@@ -183,8 +211,9 @@ namespace FabricaPlaystation
         {
             if (token == 1)
             {
-                labelSalvo.Text = valSalvo.ToString();
                 valSalvo++;
+                labelRecuperadoMan.Text = valSalvo.ToString();
+
 
             }
             else
@@ -197,9 +226,17 @@ namespace FabricaPlaystation
 
         private void verifProducao(int token)
         {
+            if (token == 1)
+            {
+                valProducao++;
+                labelProduzidos.Text = valProducao.ToString();
+            }
+            else
+            {
+                valLixo++;
+                labelDescarte.Text = valLixo.ToString();
+            }
 
-            valProducao++;
-            labelProduzidos.Text = valProducao.ToString();
 
 
 
@@ -214,14 +251,91 @@ namespace FabricaPlaystation
 
         private void BLiga_Click(object sender, EventArgs e)
         {
-
+            btnLuzEmergencia.Visible = false;
             esteiraProducao.Liga();
             esteiraManutencao.Liga();
             esteriaModelo.Liga();
             esteiraPs4.Liga();
             esteiraPs3.Liga();
             esteiraDespache.Liga();
+            bEsteiraProd.BackColor = Color.Green;
+            bEsteiraManutencao.BackColor = Color.Green;
+            BEsteiraModelo.BackColor = Color.Green;
+           
+            BVersaoPsT.BackColor = Color.Green;
+            BVersaoPsQ.BackColor = Color.Green;
+            BDespache.BackColor = Color.Green;
+         
 
+        }
+
+        private void labelDespache_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BDesliga_Click(object sender, EventArgs e)
+        {
+            desligaTudo();
+        
+        }
+
+        private void BEmergencia_Click(object sender, EventArgs e)
+        {
+            desligaTudo();
+            
+                btnLuzEmergencia.Visible = true;
+                
+            
+           
+        }
+
+        private void BDespache_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BVersaoPsT_Click(object sender, EventArgs e)
+        {
+            if (BVersaoPsT.BackColor == Color.Red)
+            {
+                BVersaoPsT.BackColor = Color.Green;
+            }
+            else
+            {
+                BVersaoPsT.BackColor = Color.Red;
+            }
+            if (esteiraPs3.Status == true)
+            {
+                esteiraPs3.Desliga();
+            }
+            else
+            {
+                esteiraPs3.Liga();
+
+            }
+
+            if (esteiraPs3.Status == false && esteiraPs4.Status == false)
+            {
+                desligaTudo();
+            }
+
+        }
+        public void desligaTudo()
+        {
+            esteiraProducao.Desliga();
+            esteiraManutencao.Desliga();
+            esteriaModelo.Desliga();
+            esteiraPs4.Desliga();
+            esteiraPs3.Desliga();
+            esteiraDespache.Desliga();
+            bEsteiraProd.BackColor = Color.Red;
+            bEsteiraManutencao.BackColor = Color.Red;
+            BEsteiraModelo.BackColor = Color.Red;
+
+            BVersaoPsT.BackColor = Color.Red;
+            BVersaoPsQ.BackColor = Color.Red;
+            BDespache.BackColor = Color.Red;
         }
     }
 }

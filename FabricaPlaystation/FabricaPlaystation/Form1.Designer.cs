@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelDespache = new System.Windows.Forms.Label();
             this.labelDescarte = new System.Windows.Forms.Label();
-            this.labelSalvo = new System.Windows.Forms.Label();
             this.labelProduzidos = new System.Windows.Forms.Label();
             this.labelPs4 = new System.Windows.Forms.Label();
             this.labelPs4Pro = new System.Windows.Forms.Label();
@@ -60,25 +59,22 @@
             this.bEsteiraProd = new System.Windows.Forms.Button();
             this.bEsteiraManutencao = new System.Windows.Forms.Button();
             this.BEsteiraModelo = new System.Windows.Forms.Button();
-            this.BEsteriaModelo = new System.Windows.Forms.Button();
             this.BVersaoPsT = new System.Windows.Forms.Button();
             this.BVersaoPsQ = new System.Windows.Forms.Button();
             this.BDespache = new System.Windows.Forms.Button();
-            this.BMPS3 = new System.Windows.Forms.Button();
-            this.BMPS4 = new System.Windows.Forms.Button();
             this.BLiga = new System.Windows.Forms.Button();
             this.BDesliga = new System.Windows.Forms.Button();
             this.BEmergencia = new System.Windows.Forms.Button();
-            this.BMVoltar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelRecuperadoMan = new System.Windows.Forms.Label();
+            this.btnLuzEmergencia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelRecuperadoMan);
             this.panel1.Controls.Add(this.labelDespache);
             this.panel1.Controls.Add(this.labelDescarte);
-            this.panel1.Controls.Add(this.labelSalvo);
             this.panel1.Controls.Add(this.labelProduzidos);
             this.panel1.Controls.Add(this.labelPs4);
             this.panel1.Controls.Add(this.labelPs4Pro);
@@ -117,6 +113,7 @@
             this.labelDespache.Size = new System.Drawing.Size(16, 17);
             this.labelDespache.TabIndex = 27;
             this.labelDespache.Text = "0";
+            this.labelDespache.Click += new System.EventHandler(this.labelDespache_Click);
             // 
             // labelDescarte
             // 
@@ -126,15 +123,6 @@
             this.labelDescarte.Size = new System.Drawing.Size(16, 17);
             this.labelDescarte.TabIndex = 26;
             this.labelDescarte.Text = "0";
-            // 
-            // labelSalvo
-            // 
-            this.labelSalvo.AutoSize = true;
-            this.labelSalvo.Location = new System.Drawing.Point(104, 56);
-            this.labelSalvo.Name = "labelSalvo";
-            this.labelSalvo.Size = new System.Drawing.Size(16, 17);
-            this.labelSalvo.TabIndex = 25;
-            this.labelSalvo.Text = "0";
             // 
             // labelProduzidos
             // 
@@ -357,14 +345,14 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 18);
+            this.label2.Size = new System.Drawing.Size(71, 18);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Produzidos:";
+            this.label2.Text = "Perfeitos:";
             // 
             // bEsteiraProd
             // 
             this.bEsteiraProd.BackColor = System.Drawing.Color.Red;
-            this.bEsteiraProd.Location = new System.Drawing.Point(12, 6);
+            this.bEsteiraProd.Location = new System.Drawing.Point(13, 4);
             this.bEsteiraProd.Name = "bEsteiraProd";
             this.bEsteiraProd.Size = new System.Drawing.Size(102, 65);
             this.bEsteiraProd.TabIndex = 1;
@@ -391,30 +379,21 @@
             this.BEsteiraModelo.Text = "Esteira Modelo";
             this.BEsteiraModelo.UseVisualStyleBackColor = false;
             // 
-            // BEsteriaModelo
-            // 
-            this.BEsteriaModelo.BackColor = System.Drawing.Color.Red;
-            this.BEsteriaModelo.Location = new System.Drawing.Point(12, 77);
-            this.BEsteriaModelo.Name = "BEsteriaModelo";
-            this.BEsteriaModelo.Size = new System.Drawing.Size(102, 65);
-            this.BEsteriaModelo.TabIndex = 4;
-            this.BEsteriaModelo.Text = "Esteira Modelo";
-            this.BEsteriaModelo.UseVisualStyleBackColor = false;
-            // 
             // BVersaoPsT
             // 
             this.BVersaoPsT.BackColor = System.Drawing.Color.Red;
-            this.BVersaoPsT.Location = new System.Drawing.Point(121, 77);
+            this.BVersaoPsT.Location = new System.Drawing.Point(13, 72);
             this.BVersaoPsT.Name = "BVersaoPsT";
             this.BVersaoPsT.Size = new System.Drawing.Size(102, 65);
             this.BVersaoPsT.TabIndex = 5;
             this.BVersaoPsT.Text = "Versão PS3";
             this.BVersaoPsT.UseVisualStyleBackColor = false;
+            this.BVersaoPsT.Click += new System.EventHandler(this.BVersaoPsT_Click);
             // 
             // BVersaoPsQ
             // 
             this.BVersaoPsQ.BackColor = System.Drawing.Color.Red;
-            this.BVersaoPsQ.Location = new System.Drawing.Point(229, 77);
+            this.BVersaoPsQ.Location = new System.Drawing.Point(120, 72);
             this.BVersaoPsQ.Name = "BVersaoPsQ";
             this.BVersaoPsQ.Size = new System.Drawing.Size(102, 65);
             this.BVersaoPsQ.TabIndex = 6;
@@ -425,33 +404,13 @@
             // BDespache
             // 
             this.BDespache.BackColor = System.Drawing.Color.Red;
-            this.BDespache.Location = new System.Drawing.Point(121, 148);
+            this.BDespache.Location = new System.Drawing.Point(228, 75);
             this.BDespache.Name = "BDespache";
             this.BDespache.Size = new System.Drawing.Size(102, 65);
             this.BDespache.TabIndex = 7;
             this.BDespache.Text = "Esteira Despache";
             this.BDespache.UseVisualStyleBackColor = false;
-            // 
-            // BMPS3
-            // 
-            this.BMPS3.BackColor = System.Drawing.Color.Red;
-            this.BMPS3.Location = new System.Drawing.Point(12, 302);
-            this.BMPS3.Name = "BMPS3";
-            this.BMPS3.Size = new System.Drawing.Size(102, 65);
-            this.BMPS3.TabIndex = 10;
-            this.BMPS3.Text = "Embalagem PS3";
-            this.BMPS3.UseVisualStyleBackColor = false;
-            // 
-            // BMPS4
-            // 
-            this.BMPS4.BackColor = System.Drawing.Color.Red;
-            this.BMPS4.Location = new System.Drawing.Point(120, 302);
-            this.BMPS4.Name = "BMPS4";
-            this.BMPS4.Size = new System.Drawing.Size(102, 65);
-            this.BMPS4.TabIndex = 13;
-            this.BMPS4.Text = "Embalagem PS4";
-            this.BMPS4.UseVisualStyleBackColor = false;
-            this.BMPS4.Click += new System.EventHandler(this.BMPS4_Click);
+            this.BDespache.Click += new System.EventHandler(this.BDespache_Click);
             // 
             // BLiga
             // 
@@ -471,6 +430,7 @@
             this.BDesliga.TabIndex = 16;
             this.BDesliga.Text = "Desliga Todas";
             this.BDesliga.UseVisualStyleBackColor = true;
+            this.BDesliga.Click += new System.EventHandler(this.BDesliga_Click);
             // 
             // BEmergencia
             // 
@@ -480,43 +440,42 @@
             this.BEmergencia.TabIndex = 17;
             this.BEmergencia.Text = "Emergencia";
             this.BEmergencia.UseVisualStyleBackColor = true;
+            this.BEmergencia.Click += new System.EventHandler(this.BEmergencia_Click);
             // 
-            // BMVoltar
+            // labelRecuperadoMan
             // 
-            this.BMVoltar.BackColor = System.Drawing.Color.Red;
-            this.BMVoltar.Location = new System.Drawing.Point(67, 382);
-            this.BMVoltar.Name = "BMVoltar";
-            this.BMVoltar.Size = new System.Drawing.Size(102, 65);
-            this.BMVoltar.TabIndex = 18;
-            this.BMVoltar.Text = "Regresso Defeitos";
-            this.BMVoltar.UseVisualStyleBackColor = false;
+            this.labelRecuperadoMan.AutoSize = true;
+            this.labelRecuperadoMan.Location = new System.Drawing.Point(107, 56);
+            this.labelRecuperadoMan.Name = "labelRecuperadoMan";
+            this.labelRecuperadoMan.Size = new System.Drawing.Size(16, 17);
+            this.labelRecuperadoMan.TabIndex = 28;
+            this.labelRecuperadoMan.Text = "0";
             // 
-            // label1
+            // btnLuzEmergencia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(76, 267);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Máquinas";
+            this.btnLuzEmergencia.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLuzEmergencia.Enabled = false;
+            this.btnLuzEmergencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuzEmergencia.Location = new System.Drawing.Point(64, 230);
+            this.btnLuzEmergencia.Name = "btnLuzEmergencia";
+            this.btnLuzEmergencia.Size = new System.Drawing.Size(169, 142);
+            this.btnLuzEmergencia.TabIndex = 18;
+            this.btnLuzEmergencia.Text = "Emergencia";
+            this.btnLuzEmergencia.UseVisualStyleBackColor = false;
+            this.btnLuzEmergencia.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 487);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BMVoltar);
+            this.Controls.Add(this.btnLuzEmergencia);
             this.Controls.Add(this.BEmergencia);
             this.Controls.Add(this.BDesliga);
             this.Controls.Add(this.BLiga);
-            this.Controls.Add(this.BMPS4);
-            this.Controls.Add(this.BMPS3);
             this.Controls.Add(this.BDespache);
             this.Controls.Add(this.BVersaoPsQ);
             this.Controls.Add(this.BVersaoPsT);
-            this.Controls.Add(this.BEsteriaModelo);
             this.Controls.Add(this.BEsteiraModelo);
             this.Controls.Add(this.bEsteiraManutencao);
             this.Controls.Add(this.bEsteiraProd);
@@ -527,7 +486,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -537,17 +495,12 @@
         private System.Windows.Forms.Button bEsteiraProd;
         private System.Windows.Forms.Button bEsteiraManutencao;
         private System.Windows.Forms.Button BEsteiraModelo;
-        private System.Windows.Forms.Button BEsteriaModelo;
         private System.Windows.Forms.Button BVersaoPsT;
         private System.Windows.Forms.Button BVersaoPsQ;
         private System.Windows.Forms.Button BDespache;
-        private System.Windows.Forms.Button BMPS3;
-        private System.Windows.Forms.Button BMPS4;
         private System.Windows.Forms.Button BLiga;
         private System.Windows.Forms.Button BDesliga;
         private System.Windows.Forms.Button BEmergencia;
-        private System.Windows.Forms.Button BMVoltar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelDespachados;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelLixo;
@@ -574,8 +527,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label labelProduzidos;
         private System.Windows.Forms.Label labelDescarte;
-        private System.Windows.Forms.Label labelSalvo;
         private System.Windows.Forms.Label labelDespache;
+        private System.Windows.Forms.Label labelRecuperadoMan;
+        private System.Windows.Forms.Button btnLuzEmergencia;
     }
 }
 

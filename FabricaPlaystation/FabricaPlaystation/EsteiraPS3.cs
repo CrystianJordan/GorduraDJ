@@ -30,11 +30,11 @@ namespace FabricaPlaystation
         public virtual int VerificarAsync(Console console)
         {
             int i = console.GeraNumero();
-            if (i > 30)
+            if (i < 40)
             {
                 return 1;
             }
-            else if(i>=30 && i<=60)
+            else if(i>=40 && i<=60)
             {
                 return 2;
             }
