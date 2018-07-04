@@ -18,6 +18,7 @@ namespace FabricaPlaystation
                     Disponivel = false;
 
                     verif = VerificarAsync(console);
+                    //delegate da classe
                     Versao(verif);
                     Disponivel = true;
                 }
@@ -31,9 +32,6 @@ namespace FabricaPlaystation
             {
                 return 1;
             }
-           
-               
-           
             else
             {
                 return 2;

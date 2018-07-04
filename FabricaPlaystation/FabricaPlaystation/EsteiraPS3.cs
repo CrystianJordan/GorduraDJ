@@ -20,11 +20,12 @@ namespace FabricaPlaystation
                     Disponivel = false;
 
                     verif = VerificarAsync(console);
+                    //delegate da classe
                     embala(verif);
                     Disponivel = true;
                 }
             }
-            // irá esperar a função verificarAsync executar para depois preencher a variável
+         
 
         }
         public virtual int VerificarAsync(Console console)

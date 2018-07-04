@@ -12,15 +12,15 @@ namespace FabricaPlaystation
 {
     public partial class Form1 : Form
     {
-        
+        //cria as esterias
         EsteiraModelo esteriaModelo = new EsteiraModelo();
-
         EsteiraDespache esteiraDespache = new EsteiraDespache();
         EsteiraManutencao esteiraManutencao = new EsteiraManutencao();
         EsteiraProducao esteiraProducao = new EsteiraProducao();
         EsteiraPs4 esteiraPs4 = new EsteiraPs4();
         EsteiraPS3 esteiraPs3 = new EsteiraPS3();
 
+        //variaveis de verificação
         int valProducao = 0;
         int valSalvo = 0;
         int valLixo = 0;
@@ -36,12 +36,14 @@ namespace FabricaPlaystation
         public Form1()
         {
             InitializeComponent();
+            //declarando os delegates das esterias nas funções da tabela
             esteriaModelo.Modelo += verificaModelo;
             esteiraDespache.Despache += verifDespache;
             esteiraManutencao.salvo += verifManutencao;
             esteiraProducao.produziu += verifProducao;
             esteiraPs3.embala += verificaVersaoPs3;
             esteiraPs4.embala += verificaVersaoPs4;
+           //seta a emergencia como vermelha
             btnLuzEmergencia.BackColor = Color.Red;
             ProducaoAsync();
 
@@ -56,7 +58,7 @@ namespace FabricaPlaystation
 
         private void BVersaoPsQ_Click(object sender, EventArgs e)
         {
-           
+            //se o botão estiver verde vira vermelho, senão, vira verde
             if (BVersaoPsQ.BackColor == Color.Red)
             {
                 BVersaoPsQ.BackColor = Color.Green;
@@ -65,6 +67,7 @@ namespace FabricaPlaystation
             {
                 BVersaoPsQ.BackColor = Color.Red;
             }
+            //se a esteira do ps3 estiver ligada, o botão a  desliga, senão, o botão a liga
             if (esteiraPs4.Status == true)
             {
  esteiraPs4.Desliga();
@@ -74,6 +77,7 @@ namespace FabricaPlaystation
                 esteiraPs4.Liga();
                 
             }
+            //se ambas as esterias ps3 e ps4 estiverem paradas, para toda a produção
             if (esteiraPs3.Status==false && esteiraPs4.Status==false)
             {
                 desligaTudo();
@@ -87,6 +91,7 @@ namespace FabricaPlaystation
         {
             while (true)
             {
+                //fica chamando a função assicrona linhaProd
                 await Task.Delay(200);
                 LinhaProd();
             }
@@ -97,15 +102,20 @@ namespace FabricaPlaystation
         {
             int ligado = 0;
             int salvo = 0;
+            //cria um console
             Console console = new Console();
+            //recebe o resultado da verificação da esteira de produção, enquanto o delegate roda
             int verifProd = await esteiraProducao.RecebeConsole(console);
+            //se o int for 2, manda o console para a esteira de manutenção, senão, segue para a de modelo
             if (verifProd == 2)
             {
+                //na manutenção, se o int for 1, o console é recuperado, senão é descartado
                 salvo = await esteiraManutencao.RecebeConsole(console);
 
             }
             if (verifProd == 1 || salvo == 1)
             {
+                //verifica qual o modelo da esteira
                 int verife = await esteriaModelo.RecebeConsole(console);
                 if (verife == 1)
                 {
@@ -125,6 +135,7 @@ namespace FabricaPlaystation
                 }
                 if (ligado==1||ligado==2)
                 {
+                    //ativa o delegate da esteira de despache
 await esteiraDespache.RecebeConsole(console);
                 }
                 
@@ -133,6 +144,7 @@ await esteiraDespache.RecebeConsole(console);
 
         }
 
+        //recebe o token do verificaAsync da esteria correspondente, se for 1, atualiza o label ps3,se for 2, atualiza a label do ps4
         private void verificaModelo(int token)
         {
 
@@ -150,6 +162,7 @@ await esteiraDespache.RecebeConsole(console);
             }
 
         }
+        //se o token for 1,atualiza o label ps3Normal, se for 2, o LabelPs3Pró, se 3, o labelPs3Slim
         private void verificaVersaoPs3(int token)
         {
             if (token == 1)
@@ -171,6 +184,7 @@ await esteiraDespache.RecebeConsole(console);
 
             }
         }
+        //se o token for 1,atualiza o label ps4Normal, se for 2, o LabelPs4Pró, se 3, o labelPs4Slim
         private void verificaVersaoPs4(int token)
         {
             if (token == 1)
@@ -192,6 +206,7 @@ await esteiraDespache.RecebeConsole(console);
 
             }
         }
+        //se token for 1, atualiza a label despache, se for 2, atualiza a label descarte
         private void verifDespache(int token)
         {
             if (token == 1)
@@ -206,7 +221,7 @@ await esteiraDespache.RecebeConsole(console);
                 labelDescarte.Text = valLixo.ToString();
             }
         }
-
+        //se token for 1, atualiza a label recuparado, senão, atualiza a label descarte 
         private void verifManutencao(int token)
         {
             if (token == 1)
@@ -223,7 +238,7 @@ await esteiraDespache.RecebeConsole(console);
 
             }
         }
-
+        //se token for 1, atualiza a label perfeito, se não, atualiza a ladel descarte
         private void verifProducao(int token)
         {
             if (token == 1)
@@ -297,6 +312,7 @@ await esteiraDespache.RecebeConsole(console);
 
         private void BVersaoPsT_Click(object sender, EventArgs e)
         {
+            //se o botão estiver verde vira vermelho, senão, vira verde
             if (BVersaoPsT.BackColor == Color.Red)
             {
                 BVersaoPsT.BackColor = Color.Green;
@@ -305,6 +321,7 @@ await esteiraDespache.RecebeConsole(console);
             {
                 BVersaoPsT.BackColor = Color.Red;
             }
+            //se a esteira do ps3 estiver ligada, o botão a  desliga, senão, o botão a liga
             if (esteiraPs3.Status == true)
             {
                 esteiraPs3.Desliga();
@@ -314,7 +331,7 @@ await esteiraDespache.RecebeConsole(console);
                 esteiraPs3.Liga();
 
             }
-
+            //se ambas as esterias ps3 e ps4 estiverem paradas, para toda a produção
             if (esteiraPs3.Status == false && esteiraPs4.Status == false)
             {
                 desligaTudo();
@@ -323,6 +340,7 @@ await esteiraDespache.RecebeConsole(console);
         }
         public void desligaTudo()
         {
+            //ativa todas as funções desliga das esterias
             esteiraProducao.Desliga();
             esteiraManutencao.Desliga();
             esteriaModelo.Desliga();
@@ -336,6 +354,11 @@ await esteiraDespache.RecebeConsole(console);
             BVersaoPsT.BackColor = Color.Red;
             BVersaoPsQ.BackColor = Color.Red;
             BDespache.BackColor = Color.Red;
+        }
+
+        private void bEsteiraProd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

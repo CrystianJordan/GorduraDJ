@@ -16,13 +16,14 @@ namespace FabricaPlaystation
                 if (Disponivel == true)
                 {
                    
-
+             
                     verif = VerificarAsync(console);
+                    //delegate da classe
                     Modelo(verif);
                     Disponivel = true;
                 }
             }
-            // irá esperar a função verificarAsync executar para depois preencher a variável
+            //retorna o resultado do verifAsync para a tela
             return verif;  
         }
         public override int VerificarAsync(Console console)

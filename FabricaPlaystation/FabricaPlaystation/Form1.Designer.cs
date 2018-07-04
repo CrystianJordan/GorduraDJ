@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelRecuperadoMan = new System.Windows.Forms.Label();
             this.labelDespache = new System.Windows.Forms.Label();
             this.labelDescarte = new System.Windows.Forms.Label();
             this.labelProduzidos = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.BLiga = new System.Windows.Forms.Button();
             this.BDesliga = new System.Windows.Forms.Button();
             this.BEmergencia = new System.Windows.Forms.Button();
-            this.labelRecuperadoMan = new System.Windows.Forms.Label();
             this.btnLuzEmergencia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +104,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(546, 248);
             this.panel1.TabIndex = 0;
+            // 
+            // labelRecuperadoMan
+            // 
+            this.labelRecuperadoMan.AutoSize = true;
+            this.labelRecuperadoMan.Location = new System.Drawing.Point(107, 56);
+            this.labelRecuperadoMan.Name = "labelRecuperadoMan";
+            this.labelRecuperadoMan.Size = new System.Drawing.Size(16, 17);
+            this.labelRecuperadoMan.TabIndex = 28;
+            this.labelRecuperadoMan.Text = "0";
             // 
             // labelDespache
             // 
@@ -358,6 +367,7 @@
             this.bEsteiraProd.TabIndex = 1;
             this.bEsteiraProd.Text = "Esteria produção";
             this.bEsteiraProd.UseVisualStyleBackColor = false;
+            this.bEsteiraProd.Click += new System.EventHandler(this.bEsteiraProd_Click);
             // 
             // bEsteiraManutencao
             // 
@@ -441,15 +451,6 @@
             this.BEmergencia.Text = "Emergencia";
             this.BEmergencia.UseVisualStyleBackColor = true;
             this.BEmergencia.Click += new System.EventHandler(this.BEmergencia_Click);
-            // 
-            // labelRecuperadoMan
-            // 
-            this.labelRecuperadoMan.AutoSize = true;
-            this.labelRecuperadoMan.Location = new System.Drawing.Point(107, 56);
-            this.labelRecuperadoMan.Name = "labelRecuperadoMan";
-            this.labelRecuperadoMan.Size = new System.Drawing.Size(16, 17);
-            this.labelRecuperadoMan.TabIndex = 28;
-            this.labelRecuperadoMan.Text = "0";
             // 
             // btnLuzEmergencia
             // 
